@@ -11,7 +11,7 @@
         <ul>
         {% for libro in datos -%}
             <li><a href="/libro/{{libro.isbn}}">{{libro.title}}</a></li>
-        {% endfor -%}    
+        {% endfor -%}
         </ul>
     {% else %}
         <p>No hay libros.</p>

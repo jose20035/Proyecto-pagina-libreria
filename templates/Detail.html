@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de {{libro.title}}</title>
+</head>
+<body>
+    <h1>{{libro.title}}</h1>
+    <img src="{{libro.thumbnailUrl}}"/>
+    <ul>
+        <li>Numero de Páginas</li>
+        <p>Tiene {{libro.pageCount}} páginas</p>
+        <li>Descipción</li>
+        <p>{{libro.longDescription}}</p>
+        <li>Autores</li>
+        <ol>
+            {% for autor in libro.authors -%}
+                <li>{{autor}}</li>
+            {% endfor -%}
+        </ol>
+        <li>Categorias</li>
+        <ol>
+            {% for categoria in libro.categories -%}
+                <li><a href="/categoria/{{categoria}}">{{categoria}}</a></li>
+            {% endfor -%}
+        </ol>
+        {% if libro.status == "MEAP" %}
+            <li>ESTE LIBRO NO SE HA PUBLICADO</li>
+        {% endif %}
+    </ul>
+    <a href="/">Volver a la biblioteca</a>
+</body>
+</html>
