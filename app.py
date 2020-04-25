@@ -6,9 +6,10 @@ with open('books.json') as file:
 
 app = Flask(__name__)
 
+@app.route('/categoria/<categoria>')
 @app.route('/')
-def inicio():
-    return render_template("Inicio.html",datos=libros)
+def inicio(categoria=" "):
+    return render_template("Inicio.html",datos=libros,categoria=categoria)
 
 @app.route('/libro/<isbn>')
 def detail(isbn):
@@ -17,8 +18,5 @@ def detail(isbn):
             return render_template("Detail.html",libro=libro)
     abort(404)
 
-@app.route('/categoria/<categoria>')
-def catgoria(categoria):
-    
 
 app.run(debug=True)
