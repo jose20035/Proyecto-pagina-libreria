@@ -5,6 +5,16 @@
     <title>Pagina Principal</title>
 </head>
 <body>
-
+    <h1>Biblioteca.</h1>
+    <h3>Por: José Miguel Calderón Frutos</h3>
+    {% if datos %}
+        <ul>
+        {% for datos in libro -%}
+            <li><a href="/libro/{{libro.isbn}}">{{libro.title}}</a></li>
+        {% endfor -%}    
+        </ul>
+    {% else %}
+        <p>No hay libros</p>
+    {% endif %}
 </body>
 </html>
