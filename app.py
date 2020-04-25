@@ -1,5 +1,6 @@
 from flask import Flask, render_template,abort
 import json
+import os
 
 with open('books.json') as file:
     libros=json.load(file)
@@ -18,5 +19,5 @@ def detail(isbn):
             return render_template("Detail.html",libro=libro)
     abort(404)
 
-
-app.run(debug=True)
+port=os.environ["PORT"]
+app.run('0.0.0.0',int(port),debug=False)
