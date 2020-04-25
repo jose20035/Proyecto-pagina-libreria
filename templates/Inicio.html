@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Pagina Principal</title>
+    <title>Biblioteca</title>
 </head>
 <body>
     <h1>Biblioteca.</h1>
     <h3>Por: José Miguel Calderón Frutos</h3>
     {% if datos %}
         <ul>
-        {% for datos in libro -%}
+        {% for libro in datos -%}
             <li><a href="/libro/{{libro.isbn}}">{{libro.title}}</a></li>
         {% endfor -%}    
         </ul>
     {% else %}
-        <p>No hay libros</p>
+        <p>No hay libros.</p>
     {% endif %}
 </body>
 </html>

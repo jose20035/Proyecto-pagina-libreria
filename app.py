@@ -4,12 +4,13 @@ import json
 with open('books.json') as file:
     libros=json.load(file)
 
+prueba=["hola","bueno","dias"]
+
 app = Flask(__name__)
 
 @app.route('/')
 def inicio():
-    print(libros)
-    return render_template("Inicio.html",datos=libros)
+    return render_template("Inicio.html",datos=libros,hola=prueba)
 
 
 app.run(debug=True)
